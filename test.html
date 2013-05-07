@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 & (!IEMobile)]>
+<html class="ie ie6 lt-ie7 lt-ie8 lt-ie9 no-js">
+<![endif]-->
+<!--[if (IE 7) & (!IEMobile)]>
+<html class="ie ie7 lt-ie8 lt-ie9 no-js">
+<![endif]-->
+<!--[if (IE 8) & (!IEMobile)]>
+<html class="ie ie8 lt-ie9 no-js">
+<![endif]-->
+<!--[if IE 9 & (!IEMobile)]>
+<html class="ie ie9 no-js">
+<![endif]-->
+<!--[if (gt IE 9) | (IEMobile) | !(IE)  ]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#">
+	<meta charset="utf-8">
+
+	<title>EC.js</title>
+	<link rel="stylesheet" href="src/css/ec.modal.css">
+	<link rel="stylesheet" href="src/css/ec.ui.css">
+	<meta property="og:title" content="EC.js">
+</head>
+<body>
+	<div class="container">
+		<a href="#">1</a>
+		<a href="#">2</a>
+		<a href="#">3</a>
+		<a href="#">3</a>
+		<a href="#">4</a>
+	</div>
+	<script src="src/js/ec.js"></script>
+	<script>
+		// console.log('Iniciando test de dom_event');
+		// EC.require(['DOM', 'request', 'notification'], function() {
+		// 	// Ésto sólo funcionará con el primero
+		// 	EC.DOM.select('a').first().on('click', function(e) {
+		// 		e.preventDefault();
+		// 		this.style.color = '#111';
+		// 	});
+
+		// 	// Delegated
+		// 	EC.DOM.select('.container').on('click', 'a', function(e) {
+		// 		e.preventDefault();
+		// 		this.style.textDecoration = 'none';
+		// 	})
+		
+		// 	// EC.request.post({
+		// 	// 	url: 'https://www.googleapis.com/urlshortener/v1/url',
+		// 	// 	type: 'json',
+		// 	// 	data: JSON.stringify({
+		// 	// 		longUrl: 'http://emiliocobos.net/'
+		// 	// 	}),
+		// 	// 	proccessData: false,
+		// 	// 	requestContentType: 'application/json',
+		// 	// 	onsuccess: function(data) {
+		// 	// 		var link = EC.DOM.create('a', {
+		// 	// 			href: data.id,
+		// 	// 			attributes: {
+		// 	// 				'data-longurl': data.longUrl
+		// 	// 			},
+		// 	// 			target: '_blank',
+		// 	// 			innerHTML: 'Url acortada',
+		// 	// 			style: {
+		// 	// 				fontSize: '2em',
+		// 	// 				color: 'red'
+		// 	// 			}
+		// 	// 		}).appendTo('.container').appendTo('body');
+		// 	// 	}
+		// 	// });
+
+		// 	console.log('Iniciando tests de notificaciones');
+		// 	var notification = EC.notification.create('Hola!!', {
+		// 		iconUrl: 'Blah!.gif'
+		// 	})
+		// 	notification.show();
+		// });
+
+		EC.require(['DOM', 'modal', 'UI'], function() {
+			EC.UI.prompt('What\'s your name?', function(name) {
+				EC.UI.confirm('Really?', function(isreally) {
+					if( isreally )
+						EC.UI.alert('Hi, ' + name + '!')
+				}) 
+			}, 'Pepe')
+		})
+
+	</script>
+</body>
+</html>

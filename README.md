@@ -6,14 +6,14 @@ Pequeño ejemplo:
 ```html
 <script src="ec.js"></script>
 <script>
-	EC.load('DOM', function() {
+	EC.require('DOM', function() {
 		EC.DOM.select('.container').on('click', function(e) {
 			alert('Has hecho click en .container')
 		})
 	});
 
 	// Si ya está cargado no se volverá a cargar
-	EC.load(['DOM', 'request'], function() {
+	EC.require(['DOM', 'request'], function() {
 		EC.request({
 			url: 'archivo.php',
 			method: 'POST',

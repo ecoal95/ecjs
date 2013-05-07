@@ -19,6 +19,7 @@
 
 	<title>EC.js</title>
 	<meta property="og:title" content="EC.js">
+	<link rel="stylesheet" href="./../src/css/ec.modal.css">
 </head>
 <body>
 	<div class="container">
@@ -28,45 +29,16 @@
 		<a href="#">3</a>
 		<a href="#">4</a>
 	</div>
-	<script src="../src/ec.js"></script>
+	<script src="./../src/js/ec.js"></script>
 	<script>
-		EC.load(['DOM', 'request'], function() {
-			console.log( 'todo cargado' );
-
-			// Ésto sólo funcionará con el primero
-			EC.DOM.select('a').first().on('click', function(e) {
-				e.preventDefault();
-				this.style.color = '#111';
-			});
-
-			// Delegated
-			EC.DOM.select('.container').on('click', 'a', function(e) {
-				e.preventDefault();
-				this.style.textDecoration = 'none';
-			})
-		
-			EC.request.post({
-				url: 'https://www.googleapis.com/urlshortener/v1/url',
-				type: 'json',
-				data: JSON.stringify({
-					longUrl: 'http://emiliocobos.net/'
-				}),
-				proccessData: false,
-				requestContentType: 'application/json',
-				onsuccess: function(data) {
-					var link = EC.DOM.create('a', {
-						href: data.id,
-						attributes: {
-							'data-longurl': data.longUrl
-						},
-						target: '_blank',
-						innerHTML: 'Url acortada',
-						style: {
-							fontSize: '2em',
-							color: 'red'
-						}
-					}).appendTo('.container').appendTo('body');
-				}
+		EC.require('request', function() {
+			EC.request.get('./../src/js/ec.ui.js', function(result) {
+				EC.require(['DOM', 'modal'], function() {
+					EC.modal.create({
+						title: 'Contenido de ec.ui.js',
+						content: '<pre style="text-align: left">' + result + '</pre>'
+					}).show();
+				})
 			})
 		})
 

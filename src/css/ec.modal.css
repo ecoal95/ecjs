@@ -1,0 +1,50 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 8, ../sass/ec.modal.scss */
+.ec-modal-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: transparent;
+  background: rgba(0, 0, 0, 0.4);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000)";
+  /* IE8 */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000,endColorstr=#66000000);
+  /* IE6 & 7 */
+  zoom: 1;
+}
+
+/* line 23, ../sass/ec.modal.scss */
+.ec-modal {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: absolute;
+  background: white;
+  text-align: center;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  border-radius: .3em .3em .15em .15em;
+  z-index: 9999;
+}
+
+/* line 34, ../sass/ec.modal.scss */
+.ec-modal-title {
+  padding: .3em 0;
+  background: #ddd;
+  color: #777;
+}
+
+/* line 40, ../sass/ec.modal.scss */
+.ec-modal-content {
+  padding: 1em 0;
+}
+
+/* line 44, ../sass/ec.modal.scss */
+.ec-modal-footer {
+  padding-bottom: .5em;
+}

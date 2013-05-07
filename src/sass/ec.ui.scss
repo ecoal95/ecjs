@@ -1,0 +1,78 @@
+@import "compass";
+
+$base-line-height: (1 + sqrt(5)) / 2 !default;
+$success-color: #5DA423 !default;
+$warning-color: #F4A111 !default;
+// $info-color: #5C99FB;
+$info-color: #16a3Ce !default;
+$error-color: darken(red, 7.5%) !default;
+
+@mixin btn-colors($color: #666) {
+	background: $color;
+	$amount: 5%;
+
+	@if lightness($color) > 70% {
+		$amount: 10%;
+		color: #444;
+	}
+	@else {
+		color: white;
+	}
+
+	@include background-image(linear-gradient($color, darken($color, $amount)));
+	border-color: darken($color, $amount + 5%);
+
+
+	&:hover {
+		background: darken($color, $amount);
+	}
+}
+
+.ec-ui-btn {
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+	padding: .4em .7em;
+
+	font-weight: bold;
+	border: 1px solid;
+	border-radius: .25em;
+	@include box-shadow(0 1px 0 rgba(white,.3) inset);
+
+	@include btn-colors(#fafafa);
+
+	&:active {
+		@include box-shadow(0 0 4px rgba(0,0,0,.4) inset);
+	}
+}
+
+.ec-ui-btn-cancel {
+	@include btn-colors($error-color);
+}
+
+.ec-ui-btn-ok {
+	@include btn-colors($success-color);
+}
+.ec-ui-input {
+	border: 1px solid #ccc;
+	padding: .5em;
+	@include border-radius(.25em);
+}
+// .ec-ui-btn-warning {
+// 	@include btn-colors($warning-color);
+// }
+// .ec-ui-btn-info {
+// 	@include btn-colors($info-color);
+// }
+// .ec-ui-btn-block {
+// 	display: block;
+
+// 	width: 98%;
+// 	margin: 0 auto;
+// 	margin-bottom: 1em;
+// 	padding: .5em;
+// }
+// .ec-ui-btn-big {
+// 	font-size: 1.3em;
+// 	padding: .5em .75em;
+// }
